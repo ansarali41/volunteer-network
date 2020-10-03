@@ -1,0 +1,10 @@
+.registration-form{
+    margin: 0 auto;
+    width: 400px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px lightgrey;
+    padding: 20px;
+}
+.registration-form input{
+    width: 80%;
+}
