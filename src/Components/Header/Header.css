@@ -1,0 +1,11 @@
+.nav-links{
+    line-height: 40px;
+}
+.single-nav-link{
+    color: black;
+    text-decoration: none;
+    margin-right: 18px;
+}
+.single-nav-link:hover{
+    text-decoration:none;
+}
