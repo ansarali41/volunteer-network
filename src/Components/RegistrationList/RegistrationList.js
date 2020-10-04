@@ -1,11 +1,30 @@
-import React from 'react';
+import { Grid } from '@material-ui/core';
+import React, { useContext, useEffect, useState } from 'react';
+import { UserContext } from '../../App';
 import Header from '../Header/Header';
+import RegistrationsDetails from '../RegistrationsDetails/RegistrationsDetails';
 
 const RegistrationList = () => {
+    const [user, setUser] =useContext(UserContext);
+    const [registrations ,setRegistrations]=useState([]);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/registrations/${user.email}`)
+        .then(response => response.json())
+        .then(data =>{
+            setRegistrations(data);
+        })
+    },[user.email])
+
+    
     return (
         <div className="container">
             <Header></Header>
-            <h1>list comingSoon .</h1>
+            <Grid container direction="row">
+                {
+                    registrations.map((registration => <RegistrationsDetails registrationsList={registration}  key={registration._id}></RegistrationsDetails>))
+                }
+            </Grid>
         </div>
     );
 };

@@ -1,0 +1,20 @@
+.registration-list-container{
+    display:flex;
+    width: 345px;
+    height: 175px;
+    border: 1px solid lightgrey;
+    position: relative;
+    padding: 5px;
+    box-shadow: 5px 5px 5px lightgrey;
+    border-radius: 5px;
+    margin: 8px;
+}
+.reg-card-image img{
+    width: 120px;
+    padding: 5px;
+}
+.registration-delete-btn{
+    position: relative;
+    top: 35px;
+    left: 120px;
+}

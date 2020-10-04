@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import './Register.css'
 import { UserContext } from '../../App';
@@ -18,15 +18,29 @@ const Register = () => {
 
     }, [volKey])
 
-    const newVolunteerDetails = { ...newVolunteer }
-    // console.log(newVolunteerDetails);
+    const { name, photo } = newVolunteer;
 
     // user information
     const [user, setUser] = useContext(UserContext);
-    const { name, email } = user;
+    const { displayName, email } = user;
+    const history = useHistory();
+
+    // registration form handler
     const { register, handleSubmit, errors } = useForm();
-    const onSubmit = data => {
-        console.log(data);
+    const onSubmit = registerData => {
+        const newRegistrationData = { ...registerData, photo }
+        fetch('http://localhost:5000/addRegistration', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newRegistrationData)
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+                    alert('Registration successfully done')
+                    history.push("/registrationList");
+                }
+            })
     }
 
     return (
@@ -39,27 +53,23 @@ const Register = () => {
             <div className="registration-form ">
                 <h3>Register as a Volunteer</h3>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <input name="fullName" defaultValue={name} ref={register({ required: true })} placeholder="Full Name" /> <br />
+                    <input name="fullName" defaultValue={displayName} ref={register({ required: true })} placeholder="Full Name" /> <br />
                     {errors.fullName && <span style={{ color: 'red' }}>Full Name is required</span>} <br />
 
                     <input name="email" defaultValue={email} ref={register({ required: true })} placeholder="Email or Username" /> <br />
                     {errors.email && <span style={{ color: 'red' }}>Email or user name is required</span>} <br />
 
-
-                    {/* data picker not fixed yer */}
-
-
-                    <input name="date" ref={register({ required: true })} placeholder="Date" /> <br />
+                    <input name="date" type="date" ref={register({ required: true })} placeholder="Date" /> <br />
                     {errors.date && <span style={{ color: 'red' }}>Date is required</span>} <br />
 
                     <input name="description" ref={register({ required: true })} placeholder="Description" /> <br />
                     {errors.description && <span style={{ color: 'red' }}>Description is required</span>} <br />
 
-                    <input name="volunteerName" defaultValue={newVolunteerDetails.name} ref={register({ required: true })} placeholder="Volunteer name" /> <br />
-                    {errors.volunteerName && <span style={{ color: 'red' }}>Volunteer name is required</span>} <br />
-                    <Link to="/registrationList">
-                        <input className="bg-primary text-white" type="submit" value="Registration" />
-                    </Link>
+                    <input name="volunteeringName" defaultValue={name} ref={register({ required: true })} placeholder="volunteering name" /> <br />
+                    {errors.volunteeringName && <span style={{ color: 'red' }}>Volunteer name is required</span>} <br />
+                    {/* <Link to="/registrationList"> */}
+                    <input className="bg-primary text-white" type="submit" value="Registration" />
+                    {/* </Link> */}
                 </form>
             </div>
         </div>

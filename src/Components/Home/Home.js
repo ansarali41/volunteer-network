@@ -11,20 +11,20 @@ const Home = () => {
             .then(response => response.json())
             .then(data => setVolunteers(data))
 
-}, [])
+    }, [])
 
-// style={{ backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://i.ibb.co/w7q5pbq/extra-Volunteer.png')` }}
-return (
-    <div>
-        <Header></Header>
-        <Banner></Banner>
-        <Grid container direction="row" justify="center">
-            {
-                volunteers.map(vol => <VolunteerDetails volunteer={vol} key={vol.key}></VolunteerDetails>)
-            }
-        </Grid>
-    </div>
-);
+    // style={{ backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://i.ibb.co/w7q5pbq/extra-Volunteer.png')` }}
+    return (
+        <div className="container">
+            <Header></Header>
+            <Banner></Banner>
+            <Grid container direction="row" justify="center">
+                {
+                    volunteers.map(vol => <VolunteerDetails volunteer={vol} key={vol.key}></VolunteerDetails>)
+                }
+            </Grid>
+        </div>
+    );
 };
 
 export default Home;

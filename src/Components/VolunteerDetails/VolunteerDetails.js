@@ -9,7 +9,7 @@ const VolunteerDetails = (props) => {
 
     return (
         <Link to={`/volunteer/${key}`} className="single-volunteer-card">
-            <Card style={{ width: '15rem', height: '23rem' }}>
+            <Card style={{ width: '12rem', height: '20rem' }}>
                 <Card.Img variant="top" src={photo} />
                 <Card.Body className="text-center" style={{ backgroundColor: 'lightblue' }}>
                     <Card.Title>{name}</Card.Title>

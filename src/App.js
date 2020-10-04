@@ -17,7 +17,11 @@ import Admin from './Components/Admin/Admin';
 export const UserContext = createContext();
 
 function App() {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState({
+    displayName: '',
+    email: '',
+    isLoggedIn: false
+  })
   return (
     <UserContext.Provider className="container" value={[user, setUser]}>
       <Router>
