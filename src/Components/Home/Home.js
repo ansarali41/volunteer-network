@@ -7,20 +7,22 @@ import VolunteerDetails from '../VolunteerDetails/VolunteerDetails';
 const Home = () => {
     const [volunteers, setVolunteers] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/volunteerTasks')
+        fetch('https://nameless-falls-04775.herokuapp.com/volunteerTasks')
             .then(response => response.json())
             .then(data => setVolunteers(data))
 
     }, [])
 
-    // style={{ backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://i.ibb.co/w7q5pbq/extra-Volunteer.png')` }}
+    
     return (
-        <div className="container">
+        <div className="container" style={{background:`linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+            url('https://i.ibb.co/7gFRDS8/bg-img.jpg')`, height:'370px'}}>
             <Header></Header>
             <Banner></Banner>
             <Grid container direction="row" justify="center">
                 {
-                    volunteers.map(vol => <VolunteerDetails volunteer={vol} key={vol.key}></VolunteerDetails>)
+                    volunteers.map(vol => <VolunteerDetails volunteer={vol} key={vol._id}></VolunteerDetails>)
                 }
             </Grid>
         </div>

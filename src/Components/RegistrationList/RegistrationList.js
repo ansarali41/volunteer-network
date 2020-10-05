@@ -9,7 +9,7 @@ const RegistrationList = () => {
     const [registrations ,setRegistrations]=useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/registrations/${user.email}`)
+        fetch(`https://nameless-falls-04775.herokuapp.com/registrations/${user.email}`)
         .then(response => response.json())
         .then(data =>{
             setRegistrations(data);

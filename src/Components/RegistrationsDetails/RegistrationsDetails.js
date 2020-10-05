@@ -6,7 +6,7 @@ const RegistrationsDetails = (props) => {
     const { volunteeringName, date, photo, _id } = props.registrationsList;
     
     const deleteRegistration = () => {
-        fetch(`http://localhost:5000/delete/${_id}`, {
+        fetch(`https://nameless-falls-04775.herokuapp.com/delete/${_id}`, {
             method: 'DELETE'
         })
             .then(response => response.json())

@@ -37,9 +37,9 @@ function App() {
           <PrivateRoute path="/registrationList">
             <RegistrationList></RegistrationList>
           </PrivateRoute>
-          <Route path="/admin">
+          <PrivateRoute path="/admin">
             <Admin />
-          </Route>
+          </PrivateRoute>
 
           <Route path="/comingSoon">
             <ComingSoon />

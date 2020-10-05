@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import './VolunteerDetails.css'
 
 const VolunteerDetails = (props) => {
-    const { name, photo, key } = props.volunteer;
+    const { name, photo, _id } = props.volunteer;
  
 
     return (
-        <Link to={`/volunteer/${key}`} className="single-volunteer-card">
+        <Link to={`/volunteer/${_id}`} className="single-volunteer-card">
             <Card style={{ width: '12rem', height: '20rem' }}>
                 <Card.Img variant="top" style={{ height: '14rem'}} src={photo} />
                 <Card.Body className="text-center" style={{ backgroundColor: 'lightblue' }}>

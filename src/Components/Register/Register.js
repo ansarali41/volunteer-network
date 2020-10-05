@@ -9,10 +9,10 @@ const Register = () => {
     const { volKey } = useParams();
     const [newVolunteer, setNewVolunteer] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/volunteerTasks')
+        fetch('https://nameless-falls-04775.herokuapp.com/volunteerTasks')
             .then(response => response.json())
             .then(data => {
-                const selectedVolunteer = data.find(task => task.key === parseInt(volKey));
+                const selectedVolunteer = data.find(task => task._id === volKey);
                 setNewVolunteer(selectedVolunteer)
             })
 
@@ -29,7 +29,7 @@ const Register = () => {
     const { register, handleSubmit, errors } = useForm();
     const onSubmit = registerData => {
         const newRegistrationData = { ...registerData, photo }
-        fetch('http://localhost:5000/addRegistration', {
+        fetch('https://nameless-falls-04775.herokuapp.com/addRegistration', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newRegistrationData)

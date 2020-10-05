@@ -34,3 +34,8 @@
 .user-delete-icon{
     cursor: pointer;
 }
+.add-event-input-form-container{
+    border: 1px solid lightgrey;
+    margin: 0 auto;
+    padding-left: 70px;
+}

@@ -12,7 +12,7 @@ const Admin = () => {
     // add event form
     const { register, handleSubmit, errors } = useForm();
     const onSubmit = eventData => {
-        fetch('http://localhost:5000/addVolunteerTasks', {
+        fetch('https://nameless-falls-04775.herokuapp.com/addVolunteerTasks', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(eventData)
@@ -28,7 +28,7 @@ const Admin = () => {
     // get all user registrations data
     const [usersRegistrationList, setUsersRegistrationList] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/allRegistrations`)
+        fetch(`https://nameless-falls-04775.herokuapp.com/allRegistrations`)
             .then(response => response.json())
             .then(data => {
                 setUsersRegistrationList(data)
@@ -38,7 +38,7 @@ const Admin = () => {
     // delete user task or event from admin
     const deleteRegistrationOfUser = (id) => {
         console.log('register deleted',id);
-        fetch(`http://localhost:5000/deleteUserReg/${id}`,{
+        fetch(`https://nameless-falls-04775.herokuapp.com/deleteUserReg/${id}`,{
             method: 'DELETE'
         })
         .then(response => response.json())
@@ -91,7 +91,7 @@ const Admin = () => {
                             }
                         </Table>
                     </div> :
-                        <div className="container">
+                        <div className="add-event-input-form-container">
                             <form className="add-event-form-container p-5" onSubmit={handleSubmit(onSubmit)}>
 
                                 <div className="event-form-1 mr-5">
