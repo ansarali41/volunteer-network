@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom';
 import './RegistrationsDetails.css';
 
 const RegistrationsDetails = (props) => {
     const { volunteeringName, date, photo, _id } = props.registrationsList;
-    let history = useHistory();
-
+    
     const deleteRegistration = () => {
         fetch(`http://localhost:5000/delete/${_id}`, {
             method: 'DELETE'
@@ -14,7 +12,7 @@ const RegistrationsDetails = (props) => {
             .then(response => response.json())
             .then(data => {
                 if (data) {
-                    history.push("/");
+                    alert('volunteer task deleted successfully')
                 }
             })
     }

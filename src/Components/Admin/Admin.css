@@ -1,0 +1,36 @@
+
+.admin-container{
+    position: relative;
+}
+.volunteer-list-image, .add-event-image{
+    width: 18px;
+}
+.toggle-btn-container{
+    width: 18%;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+.toggle-btn-container p{
+    cursor: pointer;
+}
+.admin-header-container{
+    display:flex;
+}
+.admin-header-container p{
+    position: relative;
+    top: 35px;
+    left: 1px;
+}
+.toggle-display-container{
+    display: flex;
+}
+.toggle-btn-actions-container{
+    width: 70%;
+    margin-top: 20px;
+}
+.add-event-form-container{
+    display: flex;
+}
+.user-delete-icon{
+    cursor: pointer;
+}

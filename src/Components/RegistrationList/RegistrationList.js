@@ -14,9 +14,9 @@ const RegistrationList = () => {
         .then(data =>{
             setRegistrations(data);
         })
-    },[user.email])
+    },[user.email,registrations])
 
-    
+
     return (
         <div className="container">
             <Header></Header>
