@@ -1,10 +1,12 @@
-Travel Guru<br/>
-Project description◉ This is a traveling agency type website.<br/>
+Volunteer Network<br/>
+Project description:
+◉ This is an event management type website.<br/>
 
-✪ Features: <br/>
-- ⚡ A different view for different place clicks <br/>
-- ⚡ Calendar option on the semi-place confirmation page <br/>
-- ⚡ Hotel suggestions on the final confirmation page <br/>
-- ⚡ Any User Event participation can be removed by the admin <br/>
+✪ Features:<br/>
+- ⚡ Different link for user and admin panel<br/>
+- ⚡ Adding event new option by admin<br/>
+- ⚡ User information are saved in both user and admin control panel.<br/>
+- ⚡ Any User Event participation can be removed by admin<br/>
+- ⚡ Fully Responsive with sign-in/up feature<br/>
 
-✪ Technologies used: React.js, JavaScript(ES6), Bootstrap 4 for front-end; Firebase for hoisting and authentication.
+✪ Technologies used : React.js, JavaScript(ES6), Bootstrap 4 for front-end; Node.js, Express,Heroku for back-end;Firebase for hoisting and authentication; MongoDB for database.
